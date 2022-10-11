@@ -14,50 +14,36 @@ public class LinkedList{
 
     public void add(int data){
         Node node = new Node();
-        node.setData(data);
-        node.setNextNode(null);
+        node.data = data;
+        node.nextNode = null;
         if(head == null){
             head = node;
         }
         else{
             Node n = head;
-            while(n.getNextNode() != null){
-                n = n.getNextNode();
+            while(n.nextNode != null){
+                n = n.nextNode;
+
             }
-            n.setNextNode(node);
+            n.nextNode = node;
         }
     }
 
     public void printData(){
         Node node = head;
-        while(node.getNextNode() != null){
-            System.out.print(node.getData()+"\t");
-            node = node.getNextNode();
+        while(node.nextNode != null){
+            System.out.print(node.data+"\t");
+            node = node.nextNode;
         }
-        System.out.println(node.getData());
-    }
-}
-
-class Node{
-    private int data;
-    private Node nextNode;
-
-    public Node() {
+        System.out.println(node.data);
     }
 
-    public int getData() {
-        return data;
-    }
 
-    public void setData(int data) {
-        this.data = data;
-    }
-
-    public Node getNextNode() {
-        return nextNode;
-    }
-
-    public void setNextNode(Node nextNode) {
-        this.nextNode = nextNode;
+    /**
+     * InnerLinkedList
+     */
+    public class Node {
+        int data;
+        Node nextNode;
     }
 }
