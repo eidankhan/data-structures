@@ -7,6 +7,7 @@ public class LinkedList{
         linkedList.add(65);
         linkedList.add(157);
 
+        linkedList.addAtStart(25);
         linkedList.printData();
     }
 
@@ -27,6 +28,13 @@ public class LinkedList{
             }
             n.nextNode = node;
         }
+    }
+
+    public void addAtStart(int data){
+        Node node = new Node();
+        node.data = data;
+        node.nextNode = head;
+        head = node;
     }
 
     public void printData(){
