@@ -8,6 +8,8 @@ public class LinkedList{
         linkedList.add(157);
 
         linkedList.addAtStart(25);
+
+        linkedList.addAt(3, 55);
         linkedList.printData();
     }
 
@@ -35,6 +37,22 @@ public class LinkedList{
         node.data = data;
         node.nextNode = head;
         head = node;
+    }
+
+    public void addAt(int index, int data){
+        Node node = new Node();
+        node.data = data;
+        node.nextNode = null;
+
+        if(index==0)   
+            addAtStart(data);
+
+        Node n = head;
+        for(int i=0; i<index-1; i++){
+            n = n.nextNode;
+        }
+        node.nextNode = n.nextNode; //
+        n.nextNode = node;
     }
 
     public void printData(){
