@@ -14,6 +14,8 @@ public class LinkedList {
         linkedList.printData();
         linkedList.deleteAt(3);
         linkedList.printData();
+
+        System.out.println("Size of linked List: "+linkedList.getSize());
     }
 
     Node head;
@@ -73,6 +75,18 @@ public class LinkedList {
             Node tempNode = n.nextNode; // Stores the address of next node in temp node
             n.nextNode = tempNode.nextNode;
         }
+    }
+
+    public int getSize(){
+        int size = 0;
+        Node n = head;
+        while(n.nextNode != null)
+        {
+            n = n.nextNode;
+            ++size;
+        }
+        ++size;
+        return size;
     }
 
     public void printData() {
