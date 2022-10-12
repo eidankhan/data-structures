@@ -15,7 +15,12 @@ public class LinkedList {
         linkedList.deleteAt(3);
         linkedList.printData();
 
-        System.out.println("Size of linked List: "+linkedList.getSize());
+        // System.out.println("Size of linked List: "+linkedList.getSize());
+        System.out.print("Orginal --> ");
+        linkedList.printData();
+        linkedList.reverse();
+        System.out.print("Reverse --> ");
+        linkedList.printData();
     }
 
     Node head;
@@ -88,6 +93,21 @@ public class LinkedList {
         ++size;
         return size;
     }
+
+    public void reverse(){
+        Node previous = null;
+        Node current = head;
+        Node next = null;
+        while(current != null){
+            next = current.nextNode;
+            current.nextNode = previous;
+            previous = current;
+            current = next;
+        }
+        head = previous;
+    }
+
+
 
     public void printData() {
         Node node = head;
